@@ -1,0 +1,31 @@
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - analytics
+  micro-streaming-analytics:
+    container_name: micro-streaming-analytics
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: micro-streaming-analytics:latest
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - rabbitmq
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+    networks:
+      - analytics
+  
+      
+networks:
+  analytics:
+  
