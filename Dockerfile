@@ -12,5 +12,5 @@ FROM eclipse-temurin:11
 
 WORKDIR /app
 
-COPY --from=MAVEN_BUILD /build/target/micro-streaming-analytics-0.0.1-SNAPSHOT.jar /app/
-ENTRYPOINT ["java","-jar","micro-streaming-analytics-0.0.1-SNAPSHOT.jar"]
+COPY --from=MAVEN_BUILD /build/target/micro-streaming-analytics-1.0.0-rc0.jar /app/
+ENTRYPOINT ["java","-jar","micro-streaming-analytics-1.0.0-rc0.jar"]
