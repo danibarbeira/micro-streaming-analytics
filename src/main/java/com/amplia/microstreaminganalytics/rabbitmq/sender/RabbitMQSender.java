@@ -35,7 +35,7 @@ public class RabbitMQSender {
     /**
      * Scheduled task that sends a message to the defined topic exchange using the corresponding routing key.
      */
-    @Scheduled(fixedRate = 20000, initialDelay = 4000)
+    @Scheduled(fixedRate = 15000, initialDelay = 6000)
     public void send() {
         final CustomMessage customMessage = this.createCustomMessage();
         log.info("Fixed rate task - " + System.currentTimeMillis() / 1000);

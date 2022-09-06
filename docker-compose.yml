@@ -9,6 +9,15 @@ services:
       - "15672:15672"
     networks:
       - analytics
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    hostname: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    networks:
+      - analytics    
   micro-streaming-analytics:
     container_name: micro-streaming-analytics
     build:
@@ -18,14 +27,14 @@ services:
     restart: always
     ports:
       - "8080:8080"
-    depends_on:
-      - rabbitmq
     environment:
       SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_DATA_MONGODB_HOST: mongodb
     networks:
       - analytics
-  
-      
+    depends_on:
+      - rabbitmq
+      - mongodb
 networks:
   analytics:
   
