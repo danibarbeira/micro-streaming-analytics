@@ -12,7 +12,7 @@
 
 	<groupId>com.amplia</groupId>
 	<artifactId>micro-streaming-analytics</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-rc0</version>
 
 	<name>micro-streaming-analytics</name>
 	<description>Technical test project for Amplia-IoT</description>

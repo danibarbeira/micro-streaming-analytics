@@ -25,16 +25,14 @@ services:
       dockerfile: Dockerfile
     image: micro-streaming-analytics:latest
     restart: always
-    ports:
-      - "8080:8080"
     environment:
       SPRING_RABBITMQ_HOST: rabbitmq
       SPRING_DATA_MONGODB_HOST: mongodb
     networks:
       - analytics
     depends_on:
-      - rabbitmq
       - mongodb
+      - rabbitmq
 networks:
   analytics:
   
